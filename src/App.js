@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import users from "./data";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ContactList from "./components/ContactList";
+import Form from "./components/Form";
+import { useState } from "react";
 
 function App() {
+  const [data, setData] = useState(users);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+
+      <Form setData={setData} />
+
+      <ContactList users={data} />
+
+      <Footer />
     </div>
   );
 }
